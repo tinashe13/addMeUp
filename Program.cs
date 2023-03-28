@@ -12,7 +12,7 @@ class Program
         string[] inputs = input.Split(' ');
 
         string inputFile = "";
-        string outputFile = "";
+        string outputFilen = "";
 
         for (int i = 0; i < inputs.Length; i++)
         {
@@ -22,12 +22,12 @@ class Program
             }
             else if (inputs[i] == "--out")
             {
-                outputFile = inputs[i + 1];
+                outputFilen = inputs[i + 1];
             }
         }
 
         Console.WriteLine($"Input file: {inputFile}");
-        Console.WriteLine($"Output file: {outputFile}");
+        Console.WriteLine($"Output file: {outputFilen}");
 
         // Read all the lines from the file and store them in a list
         List<Player> players = null;
@@ -61,27 +61,41 @@ class Program
             List<Player> winners = players.OrderByDescending(p => p.Points).Where(p => p.Points == players.Max(pl => pl.Points)).ToList();
             string winnerString = string.Join(",", winners.Select(p => p.Name));
 
-            // Recalculate scores for tied players using suit score
+            // Check for tie based on suit score of highest card
             if (winners.Count > 1)
             {
                 foreach (Player player in winners)
                 {
                     player.CalculateSuitScore();
+                    
                 }
 
                 winners = winners.OrderByDescending(p => p.SuitScore).Where(p => p.SuitScore == winners.Max(pl => pl.SuitScore)).ToList();
                 winnerString = string.Join(",", winners.Select(p => p.Name));
+                Console.WriteLine(winners.Max(pl => pl.SuitScore));
+
+                // Check for tie based on points if suit score is also tied
+                if (winners.Count > 1 && winners.Max(p => p.SuitScore) == winners.Min(p => p.SuitScore))
+                {
+                    winners = winners.OrderByDescending(p => p.Points).Where(p => p.Points == winners.Max(pl => pl.Points)).ToList();
+                    winnerString = string.Join(",", winners.Select(p => p.Name));
+                }
             }
+
+            // Add the suit value to the winner's total points
+            int totalPoints = winners[0].Points + winners.Max(p => p.SuitScore);
 
             // Write the output to a file
-            string directory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string inputDirectory = Path.GetDirectoryName(inputFile);
+            string outputFilePath = Path.Combine(inputDirectory, outputFilen);
 
-            using (StreamWriter file = new StreamWriter(Path.Combine(directory, outputFile)))
+            using (StreamWriter file = new StreamWriter(outputFilePath))
             {
-                file.WriteLine($"{winnerString}:{winners[0].Points}");
+                file.WriteLine($"{winnerString}:{totalPoints}");
             }
 
-            Console.WriteLine($"Winner(s): {winnerString}, with {winners[0].Points} points.");
+            Console.WriteLine($"Winner(s): {winnerString}, with {totalPoints} points.");
+
         }
         catch (ArgumentNullException ex)
         {
@@ -149,9 +163,28 @@ class Program
 
         public void CalculateSuitScore()
         {
-            SuitScore = Cards.Max(card => GetSuitValue(card));
+            string maxCard = Cards.OrderByDescending(card => GetCardValue(card)).First();
+            SuitScore = GetSuitValue(maxCard);
         }
 
+        private int GetCardValue(string card)
+        {
+            string value = card.Substring(0, card.Length - 1);
+
+            switch (value)
+            {
+                case "A":
+                    return 11;
+                case "K":
+                    return 13;
+                case "Q":
+                    return 12;
+                case "J":
+                    return 11;
+                default:
+                    return int.Parse(value);
+            }
+        }
         private int GetSuitValue(string card)
         {
             string suit = card.Substring(card.Length - 1, 1);
