@@ -1,0 +1,15 @@
+C:\Users\tinas\Documents\GitHub\CardGame\bin\Debug\net6.0\CardGame.exe
+C:\Users\tinas\Documents\GitHub\CardGame\bin\Debug\net6.0\CardGame.deps.json
+C:\Users\tinas\Documents\GitHub\CardGame\bin\Debug\net6.0\CardGame.runtimeconfig.json
+C:\Users\tinas\Documents\GitHub\CardGame\bin\Debug\net6.0\CardGame.dll
+C:\Users\tinas\Documents\GitHub\CardGame\bin\Debug\net6.0\CardGame.pdb
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Debug\net6.0\CardGame.csproj.AssemblyReference.cache
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Debug\net6.0\CardGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Debug\net6.0\CardGame.AssemblyInfoInputs.cache
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Debug\net6.0\CardGame.AssemblyInfo.cs
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Debug\net6.0\CardGame.csproj.CoreCompileInputs.cache
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Debug\net6.0\CardGame.dll
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Debug\net6.0\refint\CardGame.dll
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Debug\net6.0\CardGame.pdb
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Debug\net6.0\CardGame.genruntimeconfig.cache
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Debug\net6.0\ref\CardGame.dll

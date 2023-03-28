@@ -1,0 +1,7 @@
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Release\net6.0\CardGame.csproj.AssemblyReference.cache
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Release\net6.0\CardGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Release\net6.0\CardGame.AssemblyInfoInputs.cache
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Release\net6.0\CardGame.AssemblyInfo.cs
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Release\net6.0\CardGame.csproj.CoreCompileInputs.cache
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Release\net6.0\CardGame.dll
+C:\Users\tinas\Documents\GitHub\CardGame\obj\Release\net6.0\refint\CardGame.dll
